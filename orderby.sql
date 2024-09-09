@@ -23,3 +23,4 @@
 -- select brand_name,model,rating from campusx.smartphones
 -- order by brand_name asc, rating desc
 
+-- this is new 
