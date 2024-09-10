@@ -1,0 +1,30 @@
+-- 1.
+-- You can use WHERE name LIKE 'B%' to find the countries that start with "B".
+
+-- The % is a wild-card it can match any characters
+-- Find the country that start with Y
+-- Ans...
+-- SELECT name FROM world
+--   WHERE name LIKE 'Y%'
+-- -----------------------------
+-- 2.
+-- Find the countries that end with y
+-- Ans...
+-- select name from world
+-- where name like "%y";
+-- ----------------------------
+-- 3.
+-- Luxembourg has an x - so does one other country. List them both.
+
+-- Find the countries that contain the letter x
+-- Ans...
+-- select name from world 
+-- where name like "%x%";
+-- ----------------------------
+-- 4.
+-- Iceland, Switzerland end with land - but are there others?
+-- Find the countries that end with land
+-- Ans...
+-- select name from world
+-- where name like "%land";
+-- ------------------------------
