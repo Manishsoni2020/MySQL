@@ -1,0 +1,64 @@
+-- create database if not exists briskmind;
+-- use briskmind;
+-- show tables;
+-- create table employee(emp_id int, first_name varchar(50),
+-- last_name varchar(50),position varchar(50),salary int,hire_date date);
+-- insert into employee values
+-- (101,"john","doe","developer",60000,"2020-03-15"),
+-- (102,"jane","smith","manager",75000,"2019-06-01"),
+-- (103,"emily","johnson","developer",58000,"2018-11-22"),
+-- (104,"michael","brown","intern",30000,"2022-01-10"),
+-- (105,"sarah","davis","designer",55000,"2021-07-30"),
+-- (106,"david","wilson","developer",62000,"2021-05-25"),
+-- (107,"laura","martinez","manager",70000,"2017-12-15"),
+-- (108,"james","anderson","intern",29000,"2023-02-20"),
+-- (109,"lisa","thomas","designer",50000,"2020-09-10"),
+-- (110,"kevin","taylor","developer",64000,"2022-04-05");
+-- -- Retrieve all records from the Employees table.
+-- select * from employee;
+-- -- Get the FirstName and LastName of all employees.
+-- select first_name,last_name from employee;
+-- -- Find the employee with EmployeeID 101.
+-- select * from employee where emp_id=101;
+-- -- List all employees whose Salary is greater than 50000.
+-- select * from employee where salary>50000;
+-- -- Count the number of employees with the position &#39;Manager&#39;.
+-- select count(*) from employee where position="manager";
+-- -- Get the highest salary among employees.
+-- select * from employee 
+-- order by salary desc limit 1;
+-- -- Retrieve employees hired after January 1, 2020.
+-- select * from employee 
+-- where hire_date>"2020-01-01";
+-- -- List employees ordered by LastName in ascending order.
+-- select * from employee
+-- order by last_name asc;
+-- -- Get the average salary of all employees.
+-- select avg(salary) from employee;
+-- -- Find employees with the same salary as EmployeeID 102.
+-- select * from employee
+-- where salary=75000 and emp_id!=102;
+-- -- Delete the employee with EmployeeID 105.
+-- delete from employee
+-- where emp_id=105;
+-- select * from employee;
+-- -- Remove all employees whose Position is &#39;Intern&#39;.
+-- delete from employee
+-- where position="intern";
+-- select * from employee;
+-- -- Update the Salary of employee with EmployeeID 103 to 60000.
+-- update employee set salary=60000 where emp_id=103;
+-- -- Change the Position of all employees who are &#39;Junior Developer&#39; to &#39;Developer&#39;.
+-- update employee set position="developer" where position="junior developer";
+-- -- Increase the Salary of all employees hired before January 1, 2019 by 10%.
+-- update employee set salary=salary*10/100+salary where hire_date<"2019-01-01";
+-- -- Add a new column Email to the Employees table.
+-- alter table employee add column email varchar(100);
+-- -- Modify the Salary column to increase its size to DECIMAL(12, 2).
+-- alter table employee modify column salary decimal(12,2);
+-- -- Rename the column LastName to FamilyName.
+-- alter table employee rename column last_name to familyname;
+-- -- Drop the Email column from the Employees table.
+-- alter table employee drop column email;
+-- -- Delete the Employees table from the database.
+-- drop table employee;
