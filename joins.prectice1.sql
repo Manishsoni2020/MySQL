@@ -70,40 +70,97 @@ INSERT INTO order_item (order_item_id, order_id, product_id, quantity) VALUES (7
 INSERT INTO order_item (order_item_id, order_id, product_id, quantity) VALUES (8, 1, 8, 1);
 select * from  order_item;
 
-
+-- 1.
 select product.product_name,category.category_name
 from product inner join category
 on product.category_id=category.category_id;
 
+-- 2.
 select category.category_id,category.category_name,product.product_name
 from category left join product
 on category.category_id=product.category_id;
 
+-- 3.
 select a.customer_name,b.customer_name
 from customer as a left join customer as b
 on a.referrer_id=b.customer_id;
 
+-- 4.
 select a.customer_name,o.order_id 
 from customer as a left join customer_order as o
 on a.customer_id=o.customer_id
 where order_id is null; 
 
+-- 5.
 select product.product_name,category.category_name
 from product inner join category
 on product.category_id=category.category_id
 order by category_name;
 
+-- 6.
 select count(product.product_id),category.category_name
 from product inner join category
 on product.category_id=category.category_id
 group by category_name;
 
+-- 7.
 select category.category_name,product.product_name
 from category left join product
 on category.category_id=product.category_id
 where product_id is null;
 
+-- 8.
 select max(product.price),category.category_name
 from product inner join category
 on product.category_id = category.category_id
 group by category_name;
+
+-- 9.
+select order_item.order_id,count(product.product_id) as no_of_item
+from order_item left join product
+on order_item.product_id=product.product_id
+group by order_id;
+
+-- 10.
+select product.product_name,count(order_item.order_id) as total_order
+from product inner join order_item
+on product.product_id=order_item.product_id
+group by product_name
+having total_order>5;
+
+-- 11.
+select product.product_name,category.category_name
+from product inner join category
+on product.category_id=category.category_id
+where category_name="electronics";
+
+-- 12.
+select avg(product.price) as avg_price,category.category_name
+from product inner join category
+on product.category_id=category.category_id
+group by category_name;
+
+-- 13.
+select customer.customer_name,customer_order.order_id
+from customer left join customer_order
+on customer.customer_id=customer_order.customer_id
+where order_id is null;
+
+-- 14.
+select a.customer_name,b.referrer_id
+from customer as a left join customer as b
+on a.customer_id=b.customer_id
+where b.referrer_id is null;
+
+-- 15.
+select count(product.product_id) as total_pro,category.category_name
+from product inner join category
+on product.category_id=category.category_id
+group by category_name;
+
+-- 16.
+select sum(order_item.quantity*product.price) as total_sale,category.category_name
+from product inner join category
+on order_item.product_id=product.product_id
+inner join category 
+on category.category_id=product.product_id;
