@@ -71,3 +71,4 @@
 -- -- 17. Drop all records from the Staff table where the LastName is &#39;Scott&#39;.
 -- delete from staff where last_name="scott";
 
+ 
